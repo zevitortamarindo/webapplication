@@ -1,10 +1,8 @@
-# Ao abrir o GitPod, execute:
-# pip install -r requirements.txt
-
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from uuid import uuid4
 
 app = Flask(__name__)
+
 
 musicas = [
     {'id':'1', 'artista':'Michel Teló', 'música':'Ai se eu te pego', 'ano':'2011', 'álbum':'Na Balada', 'reproduções':'204,7 milhões'},
@@ -31,4 +29,5 @@ def save():
     musicas.append({"id": uuid4(), "artista": artista, "música": música, "ano": ano, "álbum": álbum, "reproduções": reproduções})
     return render_template('index.html', musicas=musicas)
 
-app.run()
+
+app.run(debug = True)

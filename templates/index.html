@@ -5,20 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <title>Trabalho CRUD LP</title>
+    <title>Músicas Show de Bola</title>
 </head>
 <body>
-    <div>
-        <table>
-            <tr>
-                <th>Artistas</th>
-                <th>E-mail</th>
-                <th>Telefone</th>
-                <th>&nbsp;</th>
-                <th>&nbsp;</th>
-            </tr>
+    <div class="container">
+        <table class="table table-success table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Artistas</th>
+                    <th>Música</th>
+                    <th>Ano</th>
+                    <th>Álbum</th>
+                    <th>Reproduções</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            
+            {% for musica in musicas %}        
+                <tr>
+                    <td>{{musica['artista']}}</td>
+                    <td>{{musica['música']}}</td>
+                    <td>{{musica['ano']}}</td>
+                    <td>{{musica['álbum']}}</td>
+                    <td>{{musica['reproduções']}}</td>
+                    <td><a href='#' class="btn btn-light">Editar</a></td>
+                    <td><a href="#" class="btn btn-danger">Excluir</a></td>
+                </tr>
+            {% endfor %}
         </table>
+        <a href="/create" class="btn btn-info">Adicionar</a>
     </div>
-    
 </body>
 </html>
